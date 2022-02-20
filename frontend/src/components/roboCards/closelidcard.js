@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import RoboImg from "../../../src/assets/images/robo2.gif";
 
@@ -117,7 +117,29 @@ export function RoboCardClosed(props) {
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 100], [-20, 30]);
 
+   useEffect( () => {
+      fetchItems();
+   }, []);
+
+   const [items, setItems] = useState([]);
+
+   const fetchItems = async() => {
+      const data = await fetch('/closelid');
+      const items = await data.json();
+      setItems(items);
+   }
+
+   
+
+
+
   return (
+
+     
+
+
+
+
     <CardWrapper>
       <CardContainer
         style={{ x, y, rotateX, rotateY, z: 100 }}
@@ -134,8 +156,6 @@ export function RoboCardClosed(props) {
         Close Lid
            </a>
        </Button>
-
-
        </form>
       </div>
         <TopContainer>
@@ -155,6 +175,8 @@ export function RoboCardClosed(props) {
         </TopContainer>
       </CardContainer>
     </CardWrapper>
+       
+  
   );
 }
 
