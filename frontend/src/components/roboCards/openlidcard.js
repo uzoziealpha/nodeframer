@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-
 import RoboImg from "../../../src/assets/images/robo.gif";
 
 const CardWrapper = styled.div`
@@ -15,12 +14,14 @@ const CardWrapper = styled.div`
 const CardContainer = styled(motion.div)`
   width: 230px;
   height: 350px;
-  top: 150px;
+  top: 120px;
   display: flex;
   flex-direction: column;
   border-radius: 25px;
   box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
-  background-color: #0000;
+  background-color: #fff;
+  box-shadow: 10px 10px 5px #aaaaaa;
+
   color: #ffff;
   position: relative;
   cursor: grab;
@@ -83,7 +84,7 @@ const Robo = styled(motion.div)`
 
 const Button = styled.button`
   padding: 5px 5px;
-  background-color: #3949ab;
+  background-color: #;
   color: white;
   padding: 5px 15px;
   font-size: 16px;
@@ -120,14 +121,16 @@ export function RoboCardOpen(props) {
         whileTap={{ cursor: "grabbing" }}
       >
       
+     
       <div>
-        <form onSubmit={props.event} style={{display: "inline-grid", gridTemplateColumns: "auto auto", gridGap: "10px 20px"}}>
-          <Button 
-          name="close" 
-          value="lidclosed"
-          type="submit"
-          >Open Lid</Button>
-        </form>
+       <form>
+       <Button class="button is-success" onclick={RoboCardOpen}>
+          <a href="/openlid" class="href">
+        Open Lid
+           </a>
+       </Button>
+
+       </form>
         </div>
         <TopContainer>
           <CircleWrapper>

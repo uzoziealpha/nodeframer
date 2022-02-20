@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
-
 import RoboImg from "../../../src/assets/images/robo2.gif";
+
+
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -13,17 +14,20 @@ const CardWrapper = styled.div`
 `;
 
 const CardContainer = styled(motion.div)`
-  width: 230px;
-  height: 350px;
-  top: 150px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 25px;
-  box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
-  background-color: #fff;
-  color: #ffff;
-  position: relative;
-  cursor: grab;
+width: 230px;
+height: 350px;
+top: 120px;
+display: flex;
+flex-direction: column;
+border-radius: 25px;
+box-shadow: 0 2px 7px 1px rgba(31, 31, 31, 0.2);
+background-color: #fff;
+box-shadow: 10px 10px 5px #aaaaaa;
+
+color: #ffff;
+position: relative;
+cursor: grab;
+
 `;
 
 const CircleWrapper = styled.div`
@@ -43,7 +47,7 @@ const Circle = styled.div`
   top: -4.2em;
   right: -9em;
   z-index: 5;
-  background-color: green;
+  background-color: red;
   border-radius: 50%;
 `;
 
@@ -83,16 +87,17 @@ const Robo = styled(motion.div)`
 
 const Button = styled.button`
   padding: 5px 5px;
-  background-color: #3949ab;
-  color: white;
+  background-color: #;
   padding: 5px 15px;
   font-size: 16px;
   font-weight: 700;
   outline: 0;
-  box-shadow: 0px 2px 2px green;
+  box-shadow: 0px 2px 2px red;
   cursor: pointer;
   box
   transition: all 290ms ease-in-out;
+  text-decoration: none;
+
 
   &:hover {
     background-color: green;
@@ -104,7 +109,9 @@ const Button = styled.button`
 
 
 
+
 export function RoboCardClosed(props) {
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -121,14 +128,16 @@ export function RoboCardClosed(props) {
       >
       
       <div>
-        <form onSubmit={props.event} style={{display: "inline-grid", gridTemplateColumns: "auto auto", gridGap: "10px 20px"}}>
-          <Button 
-          name="close" 
-          value="lidclosed"
-          type="submit"
-          >Close Lid</Button>
-        </form>
-        </div>
+       <form>
+       <Button class="button is-success" onclick={RoboCardClosed}>
+          <a href="/closelid" class="href"> 
+        Close Lid
+           </a>
+       </Button>
+
+
+       </form>
+      </div>
         <TopContainer>
           <CircleWrapper>
             <Circle />
@@ -148,3 +157,8 @@ export function RoboCardClosed(props) {
     </CardWrapper>
   );
 }
+
+//<Button Link to='///closelid'
+//className="closelid//">
+//Close Lid
+//</Button>
